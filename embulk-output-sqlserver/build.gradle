@@ -1,6 +1,9 @@
 dependencies {
     implementation(project(path: ":embulk-output-jdbc", configuration: "runtimeElements"))
     implementation 'com.microsoft.sqlserver:mssql-jdbc:7.2.2.jre8'
+    implementation ('com.microsoft.azure:adal4j:1.6.3') {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+    }
     implementation 'net.sourceforge.jtds:jtds:1.3.1'
 
     // embulk-output-oracle has used jnr-ffi included in JRuby, which had been embedded with Embulk till v0.10.20.
